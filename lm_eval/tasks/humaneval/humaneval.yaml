@@ -17,7 +17,7 @@ generation_kwargs:
     - "\n#"
     - "\nif"
     - "\nprint"
-  max_gen_toks: 1024
+  max_gen_toks: 2048
   do_sample: false
 repeats: 1
 num_fewshot: 0

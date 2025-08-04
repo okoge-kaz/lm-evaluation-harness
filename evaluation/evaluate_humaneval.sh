@@ -8,7 +8,7 @@
 #PBS -v USE_SSH=1
 #PBS -koed
 #PBS -V
-#PBS -o outputs/gsm_plus/
+#PBS -o outputs/humaneval/
 #PBS -P gag51395
 
 cd $PBS_O_WORKDIR
@@ -27,7 +27,9 @@ export CUDA_VISIBLE_DEVICES="0"
 
 source .venv/bin/activate
 
+export HF_ALLOW_CODE_EVAL=1
 lm_eval --model vllm \
   --model_args pretrained=${model_name},tensor_parallel_size=${tensor_parallel_size},dtype=auto,gpu_memory_utilization=0.8,data_parallel_size=${data_parallel_size} \
-  --tasks gsm_plus \
-  --batch_size auto
+  --tasks humaneval \
+  --batch_size auto \
+  --confirm_run_unsafe_code
