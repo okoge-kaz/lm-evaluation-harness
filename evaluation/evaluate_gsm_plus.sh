@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -q rt_HG
-#PBS -N eval
+#PBS -N gsm_plus
 #PBS -l select=1
 #PBS -l walltime=2:00:00
 #PBS -j oe
@@ -13,13 +13,16 @@
 
 cd $PBS_O_WORKDIR
 
+echo "Nodes allocated to this job:"
+cat $PBS_NODEFILE
+
 set -e
 
 export TMP="/groups/gag51395/fujii/tmp"
 export TMP_DIR="/groups/gag51395/fujii/tmp"
 export HF_HOME="/groups/gag51395/fujii/hf_cache"
 
-model_name="Qwen/Qwen3-8B-Base"
+model_name="tokyotech-llm/Llama-3.1-8B-nemotron-cc-actual-iter0012500"
 tensor_parallel_size=1
 data_parallel_size=1
 

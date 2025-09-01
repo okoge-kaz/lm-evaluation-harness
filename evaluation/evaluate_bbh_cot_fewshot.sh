@@ -13,13 +13,16 @@
 
 cd $PBS_O_WORKDIR
 
+echo "Nodes allocated to this job:"
+cat $PBS_NODEFILE
+
 set -e
 
 export TMP="/groups/gag51395/fujii/tmp"
 export TMP_DIR="/groups/gag51395/fujii/tmp"
 export HF_HOME="/groups/gag51395/fujii/hf_cache"
 
-model_name="/groups/gcg51558/fujii/checkpoints/megatron-to-hf/Llama-3.1-8b/swallow-math/exp5/iter_0010000"
+model_name="tokyotech-llm/Llama-3.1-8B-nemotron-cc-actual-iter0012500"
 tensor_parallel_size=1
 data_parallel_size=1
 
